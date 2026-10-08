@@ -2072,19 +2072,20 @@ th {
 }
 
 .site-footer-qr-box {
-  display: grid;
-  place-items: center;
   width: 118px;
   height: 118px;
   margin: 0 auto 10px;
   border-radius: 10px;
-  background:
-    linear-gradient(135deg, rgba(255, 255, 255, 0.14), rgba(255, 255, 255, 0.04)),
-    #0f2542;
+  overflow: hidden;
+  background: #fff;
   border: 1px solid rgba(255, 255, 255, 0.16);
-  color: #ffc46b;
-  font-weight: 800;
-  letter-spacing: 0.04em;
+}
+
+.site-footer-qr-box img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .site-footer-qr p {

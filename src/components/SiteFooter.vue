@@ -28,6 +28,8 @@ const sitemapLinks = [
   { label: '矿业百科', path: '/baike' },
   { label: '招标公告', path: '/channel/tenders' },
 ]
+
+const wechatQrUrl = '/kuang_static_resources/pic/wechat-official-qr.jpg'
 </script>
 
 <template>
@@ -71,8 +73,13 @@ const sitemapLinks = [
 
       <div class="site-footer-col site-footer-qr">
         <h3>扫一扫关注公众号</h3>
-        <div class="site-footer-qr-box" aria-hidden="true">
-          <span>懂矿帝</span>
+        <div class="site-footer-qr-box">
+          <img
+            :src="wechatQrUrl"
+            alt="懂矿帝微信公众号二维码"
+            width="118"
+            height="118"
+          />
         </div>
         <p>微信公众号：懂矿帝</p>
       </div>
