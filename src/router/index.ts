@@ -173,6 +173,17 @@ const router = createRouter({
       component: () => import('../views/ProductsTradeView.vue'),
     },
     {
+      path: '/channel/used-equip',
+      name: 'used-equip',
+      component: () => import('../views/UsedEquipChannelView.vue'),
+      alias: ['/channel/geology', '/channel/地质勘查', '/channel/二手设备交易'],
+    },
+    {
+      path: '/used-equip/:id',
+      name: 'used-equip-detail',
+      component: () => import('../views/UsedEquipDetailView.vue'),
+    },
+    {
       path: '/channel/companies',
       name: 'companies',
       component: () => import('../views/CompaniesView.vue'),
@@ -215,6 +226,11 @@ const router = createRouter({
       component: () => import('../views/TenderDetailView.vue'),
     },
     {
+      path: '/about/:page?',
+      name: 'about',
+      component: () => import('../views/AboutView.vue'),
+    },
+    {
       path: '/channel/:code',
       name: 'channel',
       component: () => import('../views/PlaceholderView.vue'),
@@ -243,6 +259,13 @@ router.beforeEach((to) => {
   if (to.name === 'channel' && ['招标公告', '项目招标', 'tenders'].includes(String(to.params.code))) {
     return {
       name: 'tenders',
+      replace: true,
+    }
+  }
+
+  if (to.name === 'channel' && ['geology', '地质勘查', '二手设备交易', 'used-equip'].includes(String(to.params.code))) {
+    return {
+      name: 'used-equip',
       replace: true,
     }
   }

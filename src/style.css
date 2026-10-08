@@ -1925,6 +1925,235 @@ th {
   font-size: 14px;
 }
 
+/* 关于我们 / 会员服务 / 广告服务 */
+.about-page {
+  min-height: calc(100vh - 220px);
+  padding: 24px 0 48px;
+  background: #f4f7fb;
+}
+
+.about-layout {
+  display: grid;
+  grid-template-columns: 240px minmax(0, 1fr);
+  gap: 20px;
+  margin-top: 12px;
+}
+
+.about-nav {
+  padding: 18px 16px;
+  align-self: start;
+}
+
+.about-nav-group + .about-nav-group {
+  margin-top: 18px;
+  padding-top: 16px;
+  border-top: 1px solid #e6eef7;
+}
+
+.about-nav h2 {
+  margin: 0 0 10px;
+  color: #172b45;
+  font-size: 15px;
+}
+
+.about-nav a {
+  display: block;
+  padding: 8px 10px;
+  border-radius: 8px;
+  color: #3d4f66;
+  text-decoration: none;
+}
+
+.about-nav a:hover,
+.about-nav a.active {
+  color: #b95d19;
+  background: #fff7ed;
+  font-weight: 700;
+}
+
+.about-content {
+  padding: 28px 30px 34px;
+}
+
+.about-content h1 {
+  margin: 8px 0 18px;
+  color: #172b45;
+  font-size: 30px;
+  line-height: 1.25;
+}
+
+.about-content p {
+  margin: 0 0 14px;
+  color: #3d4f66;
+  line-height: 1.75;
+}
+
+.about-content ul {
+  margin: 8px 0 0;
+  padding-left: 20px;
+  color: #3d4f66;
+  line-height: 1.8;
+}
+
+.about-notes {
+  margin-top: 18px;
+  padding: 12px 14px;
+  border-radius: 10px;
+  background: #fff7ed;
+  color: #8a4b16;
+}
+
+.about-notes p {
+  margin: 0;
+  color: inherit;
+}
+
+@media (max-width: 860px) {
+  .about-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* 站点底部（参考 cnmining 联系我们区域，品牌：懂矿帝） */
+.site-footer {
+  color: rgba(255, 255, 255, 0.82);
+  background: #132d4f;
+  font-size: 14px;
+}
+
+.site-footer-main {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr 1fr 1.6fr 1fr;
+  gap: 28px;
+  padding: 36px 0 28px;
+}
+
+.site-footer-col h3 {
+  margin: 0 0 14px;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.site-footer-links {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.site-footer-links a,
+.site-footer-sitemap a {
+  color: rgba(255, 255, 255, 0.78);
+  text-decoration: none;
+}
+
+.site-footer-links a:hover,
+.site-footer-sitemap a:hover {
+  color: #ffc46b;
+}
+
+.site-footer-contact p {
+  margin: 0 0 8px;
+  line-height: 1.55;
+}
+
+.site-footer-contact span {
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.site-footer-brand {
+  margin-top: 12px !important;
+  color: #ffc46b !important;
+  font-weight: 700;
+}
+
+.site-footer-qr {
+  text-align: center;
+}
+
+.site-footer-qr-box {
+  display: grid;
+  place-items: center;
+  width: 118px;
+  height: 118px;
+  margin: 0 auto 10px;
+  border-radius: 10px;
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.14), rgba(255, 255, 255, 0.04)),
+    #0f2542;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  color: #ffc46b;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+}
+
+.site-footer-qr p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 13px;
+}
+
+.site-footer-sitemap {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 14px 0;
+}
+
+.site-footer-sitemap .container {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+.site-footer-sitemap strong {
+  color: #fff;
+}
+
+.site-footer-sitemap nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+}
+
+.site-footer-copy {
+  padding: 16px 0 22px;
+  color: rgba(255, 255, 255, 0.58);
+  font-size: 13px;
+  text-align: center;
+}
+
+.site-footer-copy p {
+  margin: 0 0 4px;
+}
+
+@media (max-width: 960px) {
+  .site-footer-main {
+    grid-template-columns: 1fr 1fr;
+    gap: 22px;
+    padding: 28px 0 20px;
+  }
+
+  .site-footer-contact,
+  .site-footer-qr {
+    grid-column: 1 / -1;
+  }
+
+  .site-footer-qr {
+    text-align: left;
+  }
+
+  .site-footer-qr-box {
+    margin: 0 0 10px;
+  }
+}
+
+@media (max-width: 640px) {
+  .site-footer-main {
+    grid-template-columns: 1fr;
+  }
+}
+
 .placeholder-page {
   display: grid;
   min-height: 100vh;
@@ -2088,13 +2317,31 @@ th {
 
 .equipment-hero-actions {
   display: flex;
+  align-items: center;
   gap: 12px;
   margin-top: 26px;
   flex-wrap: wrap;
 }
 
 .equipment-hero-actions a,
-.equipment-hero-actions button,
+.equipment-hero-actions button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  min-height: 40px;
+  padding: 0 16px;
+  border: 0;
+  border-radius: 999px;
+  color: #fff;
+  background: #b95d19;
+  cursor: pointer;
+  font: inherit;
+  font-weight: 800;
+  line-height: 1;
+  text-decoration: none;
+}
+
 .equipment-card-actions button,
 .equipment-company-card button,
 .compare-actions button,
@@ -2110,10 +2357,6 @@ th {
   cursor: pointer;
   font: inherit;
   font-weight: 800;
-}
-
-.equipment-hero-actions button {
-  min-height: 44px;
 }
 
 .equipment-filter {
@@ -3413,5 +3656,142 @@ th {
 
   .price-panel {
     overflow-x: auto;
+  }
+}
+
+/* 二手设备交易 */
+.used-equip-page {
+  padding-bottom: 48px;
+}
+
+.mining-card-tags .recycle {
+  background: #e8f7ef;
+  color: #1f7a4d;
+}
+
+.used-equip-card .product-order-title a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.used-equip-card .product-order-title a:hover {
+  color: #b95d19;
+}
+
+.used-equip-detail-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 320px;
+  gap: 20px;
+  margin-top: 18px;
+}
+
+.used-equip-detail-main h1 {
+  margin: 12px 0 8px;
+  font-size: 28px;
+  line-height: 1.3;
+  color: #172b45;
+}
+
+.used-equip-detail-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  color: #657386;
+  font-size: 14px;
+}
+
+.used-equip-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 10px;
+  margin: 18px 0;
+}
+
+.used-equip-gallery img {
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 12px;
+  background: #f3f6fa;
+}
+
+.used-equip-facts {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px 16px;
+  margin: 18px 0;
+  padding: 16px;
+  border-radius: 14px;
+  background: #f7fafc;
+}
+
+.used-equip-facts div {
+  display: flex;
+  gap: 8px;
+  font-size: 14px;
+}
+
+.used-equip-facts strong {
+  min-width: 64px;
+  color: #657386;
+  font-weight: 600;
+}
+
+.used-equip-related {
+  margin-top: 28px;
+}
+
+.used-equip-related h2,
+.detail-content h2 {
+  margin: 0 0 12px;
+  font-size: 18px;
+  color: #172b45;
+}
+
+.used-equip-related-list {
+  display: grid;
+  gap: 10px;
+}
+
+.used-equip-related-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 12px 14px;
+  border-radius: 12px;
+  background: #f7fafc;
+  text-decoration: none;
+  color: inherit;
+}
+
+.used-equip-related-item:hover {
+  background: #eef4fb;
+}
+
+.used-equip-related-item span {
+  color: #657386;
+  font-size: 13px;
+}
+
+.used-equip-contact {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 14px;
+}
+
+.used-equip-contact a {
+  color: #b95d19;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+@media (max-width: 900px) {
+  .used-equip-detail-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .used-equip-facts {
+    grid-template-columns: 1fr;
   }
 }

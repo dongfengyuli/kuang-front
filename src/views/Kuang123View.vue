@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { computed, onMounted, reactive, ref } from 'vue'
 import { RouterLink } from 'vue-router'
+import SiteFooter from '../components/SiteFooter.vue'
 import { footerTools, navItems } from '../data/home'
 import { getKuang123List, type Kuang123Group, type Kuang123Site } from '../services/kuang123'
 import { useAuthStore } from '../stores/auth'
@@ -65,7 +66,6 @@ onMounted(fetchGroups)
       <div class="container topbar-inner">
         <span>收藏本站</span>
         <div class="topbar-actions">
-          <span>服务热线：18748063792</span>
           <template v-if="authStore.isLoggedIn">
             <span>欢迎，{{ authStore.user?.user_name || authStore.user?.email }}</span>
             <button type="button" @click="authStore.logout">退出</button>
@@ -105,7 +105,7 @@ onMounted(fetchGroups)
           <div>
             <p class="eyebrow">KUANG 123</p>
             <h1>矿业网址大全</h1>
-            <p>矿业门户、矿权交易、矿产品行情、矿山设备、地质勘查、冶金有色等常用网站，一站式分类直达。</p>
+            <p>矿业门户、矿权交易、矿产品行情、矿山设备、二手设备、冶金有色等常用网站，一站式分类直达。</p>
           </div>
           <form class="kuang123-search" @submit.prevent="submitSearch">
             <input v-model.trim="filters.keyword" type="search" placeholder="搜索网站名称、分类或标签" />
@@ -190,13 +190,6 @@ onMounted(fetchGroups)
       </section>
     </main>
 
-    <footer class="footer">
-      <div class="container footer-inner">
-        <span>联系我们</span>
-        <span>网站地图</span>
-        <span>地址：内蒙古自治区赤峰市松山区王府大街东段</span>
-        <span>Copyright © 2026 懂矿帝</span>
-      </div>
-    </footer>
+    <SiteFooter />
   </div>
 </template>

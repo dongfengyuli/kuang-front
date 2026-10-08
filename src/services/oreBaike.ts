@@ -1,4 +1,13 @@
+import { staticUrl } from '../utils/staticUrl'
 import { http } from './http'
+
+function normalizeBaikeItem<T extends { cover?: string; content?: string }>(item: T): T {
+  return {
+    ...item,
+    cover: staticUrl(item.cover),
+    ...(item.content !== undefined ? { content: staticUrl(item.content) } : {}),
+  }
+}
 
 export interface OreBaikeItem {
   id: number
@@ -27,14 +36,26 @@ export interface OreBaikeListParams {
   sort?: string
 }
 
-export function getOreBaikeList(params: OreBaikeListParams) {
-  return http.get<unknown, { total: number; list: OreBaikeItem[] }>('/content_ecology/ore_baike/list/v1', {
-    params,
-  })
+export async function getOreBaikeList(params: OreBaikeListParams) {
+  const result = await http.get<unknown, { total: number; list: OreBaikeItem[] }>(
+    '/content_ecology/ore_baike/list/v1',
+    { params },
+  )
+  return {
+    ...result,
+    list: (result.list || []).map((item) => normalizeBaikeItem(item)),
+  }
 }
 
-export function getOreBaikeDetail(id: number) {
-  return http.get<unknown, { detail: OreBaikeDetail }>('/content_ecology/ore_baike/detail/v1', {
+export async function getOreBaikeDetail(id: number) {
+  const result = await http.get<unknown, { detail: OreBaikeDetail }>('/content_ecology/ore_baike/detail/v1', {
     params: { id },
   })
+  return {
+    ...result,
+    detail: normalizeBaikeItem({
+      ...result.detail,
+      related: (result.detail.related || []).map((item) => normalizeBaikeItem(item)),
+    }),
+  }
 }

@@ -134,7 +134,7 @@ onMounted(loadDetail)
       </label>
       <label>
         <span>地区</span>
-        <input v-model.trim="form.region" type="text" placeholder="如 内蒙古赤峰" />
+        <input v-model.trim="form.region" type="text" placeholder="如 江苏苏州" />
       </label>
       <label>
         <span>主营产品/服务</span>

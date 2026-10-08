@@ -1,4 +1,13 @@
+import { staticUrl } from '../utils/staticUrl'
 import { http } from './http'
+
+function normalizeNewsItem<T extends { cover?: string; content?: string }>(item: T): T {
+  return {
+    ...item,
+    cover: staticUrl(item.cover),
+    ...(item.content !== undefined ? { content: staticUrl(item.content) } : {}),
+  }
+}
 
 export interface MiningNewsItem {
   id: number
@@ -33,14 +42,26 @@ export interface MiningNewsListParams {
   sort?: string
 }
 
-export function getMiningNewsList(params: MiningNewsListParams) {
-  return http.get<unknown, { total: number; list: MiningNewsItem[] }>('/content_ecology/mining_news/list/v1', {
-    params,
-  })
+export async function getMiningNewsList(params: MiningNewsListParams) {
+  const result = await http.get<unknown, { total: number; list: MiningNewsItem[] }>(
+    '/content_ecology/mining_news/list/v1',
+    { params },
+  )
+  return {
+    ...result,
+    list: (result.list || []).map((item) => normalizeNewsItem(item)),
+  }
 }
 
-export function getMiningNewsDetail(id: number) {
-  return http.get<unknown, { detail: MiningNewsDetail }>('/content_ecology/mining_news/detail/v1', {
+export async function getMiningNewsDetail(id: number) {
+  const result = await http.get<unknown, { detail: MiningNewsDetail }>('/content_ecology/mining_news/detail/v1', {
     params: { id },
   })
+  return {
+    ...result,
+    detail: normalizeNewsItem({
+      ...result.detail,
+      related: (result.detail.related || []).map((item) => normalizeNewsItem(item)),
+    }),
+  }
 }

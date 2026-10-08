@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { onMounted, ref } from 'vue'
 import { RouterLink } from 'vue-router'
+import SiteFooter from '../components/SiteFooter.vue'
 import { footerTools, navItems, newsSections, tenderItems, tradeCards } from '../data/home'
 import { featuredExhibitions as fallbackFeaturedExhibitions, type ExhibitionItem } from '../data/exhibitions'
 import { getExhibitionList } from '../services/exhibitions'
@@ -80,7 +81,7 @@ const fallbackCompanies: HomeCompany[] = [
   {
     id: 0,
     name: '紫金矿业集团股份有限公司',
-    logo: '/kuang_static_resources/pic/company/zijin.svg',
+    logo: '/kuang_static_resources/pic/company/zijin.png',
     summary: '金、铜、锌等金属矿产资源开发与绿色矿山建设。',
     business_type: '矿山开发',
     region: '福建龙岩',
@@ -88,15 +89,23 @@ const fallbackCompanies: HomeCompany[] = [
   {
     id: 0,
     name: '中国恩菲工程技术有限公司',
-    logo: '/kuang_static_resources/pic/company/enfi.svg',
+    logo: '/kuang_static_resources/pic/company/enfi.png',
     summary: '矿山、冶金与环保工程综合技术服务。',
     business_type: '工程技术',
     region: '北京',
   },
   {
     id: 0,
+    name: '中煤科工集团重庆研究院有限公司',
+    logo: '/kuang_static_resources/pic/company/cqri.png',
+    summary: '煤矿安全、智能化装备与灾害防治技术服务。',
+    business_type: '安全技术',
+    region: '重庆',
+  },
+  {
+    id: 0,
     name: '北方重工集团有限公司',
-    logo: '/kuang_static_resources/pic/company/nhi.svg',
+    logo: '/kuang_static_resources/pic/company/nhi.png',
     summary: '破碎、磨矿、输送等矿山装备制造。',
     business_type: '设备制造',
     region: '辽宁沈阳',
@@ -104,7 +113,7 @@ const fallbackCompanies: HomeCompany[] = [
   {
     id: 0,
     name: '山东黄金矿业股份有限公司',
-    logo: '/kuang_static_resources/pic/company/sdgold.svg',
+    logo: '/kuang_static_resources/pic/company/sdgold.png',
     summary: '黄金资源开发、冶炼加工和矿山运营。',
     business_type: '矿山开发',
     region: '山东济南',
@@ -267,7 +276,6 @@ onMounted(() => {
       <div class="container topbar-inner">
         <span>收藏本站</span>
         <div class="topbar-actions">
-          <span>服务热线：18748063792</span>
           <template v-if="authStore.isLoggedIn">
             <span>欢迎，{{ authStore.user?.user_name || authStore.user?.email }}</span>
             <button type="button" @click="authStore.logout">退出</button>
@@ -305,7 +313,7 @@ onMounted(() => {
       <section class="hero">
         <div class="container hero-grid">
           <div class="hero-copy">
-            <p class="eyebrow">矿权交易 · 矿产品交易 · 地质勘查</p>
+            <p class="eyebrow">矿权交易 · 矿产品交易 · 二手设备</p>
             <h1>面向矿业全链路的信息发布与撮合服务平台</h1>
             <p class="hero-desc">
               聚合矿权转让求购、矿产品供需、矿山设备、招标公告、展会资讯和企业展示，打造更清晰的行业门户。
@@ -420,13 +428,6 @@ onMounted(() => {
       </div>
     </section>
 
-    <footer class="footer">
-      <div class="container footer-inner">
-        <span>联系我们</span>
-        <span>网站地图</span>
-        <span>地址：内蒙古自治区赤峰市松山区王府大街东段</span>
-        <span>Copyright © 2026 懂矿帝</span>
-      </div>
-    </footer>
+    <SiteFooter />
   </div>
 </template>

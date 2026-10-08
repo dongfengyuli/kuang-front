@@ -6,7 +6,7 @@ export const navItems = [
   { label: '矿业资讯', path: '/news' },
   { label: '矿业百科', path: '/baike' },
   { label: '矿产品交易', path: '/channel/products' },
-  { label: '地质勘查', path: '/channel/geology' },
+  { label: '二手设备交易', path: '/channel/used-equip' },
   { label: '招标公告', path: '/channel/tenders' },
   { label: '招聘求职', path: '/channel/jobs' },
 ]

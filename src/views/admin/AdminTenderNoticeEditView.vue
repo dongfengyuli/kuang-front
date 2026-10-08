@@ -156,7 +156,7 @@ onMounted(loadDetail)
       </label>
       <label>
         <span>项目地区</span>
-        <input v-model.trim="form.region" type="text" placeholder="内蒙古 赤峰" />
+        <input v-model.trim="form.region" type="text" placeholder="江苏 苏州" />
       </label>
       <label>
         <span>预算/金额</span>
