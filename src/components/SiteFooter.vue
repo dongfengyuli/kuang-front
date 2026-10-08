@@ -65,7 +65,7 @@ const wechatQrUrl = '/kuang_static_resources/pic/wechat-official-qr.jpg'
       <div class="site-footer-col site-footer-contact">
         <h3>联系我们</h3>
         <p><span>联系电话：</span>400-000-0000</p>
-        <p><span>服务热线：</span>18311219160</p>
+        <p><span>服务热线：</span>183****xxxx</p>
         <p><span>公司网址：</span>www.dongkuangdi.com</p>
         <p><span>公司地址：</span>江苏省苏州市吴江区MAX科技园</p>
         <p class="site-footer-brand">懂矿帝 · 矿业信息门户</p>
