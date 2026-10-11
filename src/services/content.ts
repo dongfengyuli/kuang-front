@@ -45,7 +45,7 @@ export interface MineCategoryListResponse {
 }
 
 export function getHomeInfo() {
-  return http.get<unknown, HomeResponse>('/content_ecology/content/home/info/v1')
+  return http.get<unknown, HomeResponse>('/content_ecology/home/info/v1')
 }
 
 export function getRecommendHotList() {

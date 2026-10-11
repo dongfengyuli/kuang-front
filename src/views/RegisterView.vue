@@ -31,9 +31,16 @@ async function handleSubmit() {
     return
   }
 
-  if (registerMode.value === 'email' && !form.email) {
-    errorMessage.value = '请填写邮箱'
-    return
+  if (registerMode.value === 'email') {
+    const email = form.email.trim()
+    const emailOk =
+      /^[a-zA-Z0-9](?:[a-zA-Z0-9._%+-]{0,62}[a-zA-Z0-9])?@(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?\.)+[a-zA-Z]{2,24}$/.test(
+        email,
+      ) && !email.includes('..')
+    if (!emailOk) {
+      errorMessage.value = '请填写合法的邮箱地址，如 name@qq.com'
+      return
+    }
   }
 
   if (registerMode.value === 'mobile' && (!form.mobile || !form.code)) {
@@ -90,7 +97,9 @@ async function handleSendCode() {
   try {
     codeLoading.value = true
     const result = await sendMobileCode(form.mobile, 'register')
-    codeMessage.value = `验证码已生成：${result.code}`
+    codeMessage.value = result.code
+      ? `验证码已生成：${result.code}`
+      : '验证码已发送，请查收短信'
   } catch (error) {
     errorMessage.value = error instanceof Error ? error.message : '获取验证码失败'
   } finally {
@@ -172,7 +181,11 @@ async function handleSendCode() {
 
         <label class="auth-agreement">
           <input v-model="form.agreed" type="checkbox" />
-          <span>我已阅读并同意中国矿业信息网使用协议及隐私条款</span>
+          <span>
+            我已阅读并同意
+            <RouterLink to="/about/terms">懂矿帝服务协议</RouterLink>
+            及隐私条款
+          </span>
         </label>
 
         <p v-if="errorMessage" class="auth-error">{{ errorMessage }}</p>

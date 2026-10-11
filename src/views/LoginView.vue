@@ -68,7 +68,9 @@ async function handleSendCode() {
   try {
     codeLoading.value = true
     const result = await sendMobileCode(form.mobile, 'login')
-    codeMessage.value = `验证码已生成：${result.code}`
+    codeMessage.value = result.code
+      ? `验证码已生成：${result.code}`
+      : '验证码已发送，请查收短信'
   } catch (error) {
     errorMessage.value = error instanceof Error ? error.message : '获取验证码失败'
   } finally {
