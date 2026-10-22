@@ -1,0 +1,6 @@
+<script setup lang="ts">
+import { RouterLink } from 'vue-router'
+import SiteFooter from './SiteFooter.vue'
+import { navItems } from '../data/home'
+</script>
+<template><div class="site-shell coal-app"><header class="topbar"><div class="container topbar-inner"><span>懂矿帝 · 专业工具，让每笔采购心中有数</span><div class="topbar-actions"><RouterLink to="/">返回首页</RouterLink><RouterLink to="/kuang123">矿123导航</RouterLink></div></div></header><nav class="site-nav"><div class="container nav-inner"><RouterLink class="brand" to="/"><span class="brand-mark"><span class="brand-badge-star"></span><span class="brand-badge-mountains"></span><span class="brand-badge-tools"></span></span><span><strong>懂矿帝</strong><small>矿业信息与交易服务</small></span></RouterLink><div class="nav-links"><RouterLink v-for="item in navItems" :key="item.path" :to="item.path">{{item.label}}</RouterLink></div></div></nav><div class="coal-subnav"><div class="container"><RouterLink to="/tools" :class="{active:$route.path==='/tools'||$route.path.startsWith('/tools/calc/')}">计算工具</RouterLink><RouterLink to="/tools/coal" :class="{active:$route.path.startsWith('/tools/coal')}">配煤专区</RouterLink><RouterLink to="/tools/records" :class="{active:$route.path==='/tools/records'}">煤源与测算记录</RouterLink><span>免费使用 · 无需登录 · 公式可查</span></div></div><main><slot /></main><SiteFooter /></div></template>

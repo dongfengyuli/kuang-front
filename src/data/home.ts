@@ -1,6 +1,7 @@
 export const navItems = [
   { label: '首页', path: '/' },
   { label: '矿123', path: '/kuang123' },
+  { label: '矿业工具', path: '/tools' },
   { label: '矿权交易', path: '/channel/mining-rights' },
   { label: '矿山设备', path: '/channel/equipment' },
   { label: '矿业资讯', path: '/news' },

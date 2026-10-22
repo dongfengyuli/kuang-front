@@ -3,7 +3,16 @@ import { useAdminAuthStore } from '../stores/adminAuth'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
+  scrollBehavior(to, from, savedPosition) {
+    if (savedPosition) return savedPosition
+    if (to.path.startsWith('/tools') && to.path !== from.path) return { top: 0 }
+    return false
+  },
   routes: [
+    { path: '/tools', name: 'coal-tools', component: () => import('../views/CoalToolsView.vue') },
+    { path: '/tools/calc/:id', name: 'coal-calculator', component: () => import('../views/CoalToolsView.vue') },
+    { path: '/tools/coal/:line?', name: 'coal-blending', component: () => import('../views/CoalBlendView.vue') },
+    { path: '/tools/records', name: 'coal-records', component: () => import('../views/CoalRecordsView.vue') },
     {
       path: '/',
       name: 'home',
@@ -286,6 +295,10 @@ router.beforeEach((to) => {
       redirect: to.fullPath,
     },
   }
+})
+
+router.afterEach((to) => {
+  if (!to.path.startsWith('/tools')) document.title = '懂矿帝 · 矿业信息与交易服务'
 })
 
 export default router
